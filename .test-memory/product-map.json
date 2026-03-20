@@ -14,7 +14,11 @@
       "id": "auth",
       "path": "/auth/login",
       "title": "ログイン",
-      "components": ["LoginForm", "GoogleButton", "ForgotPasswordLink"],
+      "components": [
+        "LoginForm",
+        "GoogleButton",
+        "ForgotPasswordLink"
+      ],
       "keySelectors": {
         "email-input": "getByRole('textbox', { name: 'アカウント' })",
         "password-input": "getByRole('textbox', { name: 'パスワード' })",
@@ -22,40 +26,72 @@
         "forgot-password-link": "getByRole('link', { name: /パスワード/ })",
         "google-login-button": "getByRole('button', { name: /Google/ })"
       },
-      "i18nKeys": ["login.welcome_back", "login_account", "login_password", "login_login", "login.forgot_password", "login.continue_with_google", "login.dont_have_account", "login.sign_up"],
-      "testCoverage": "full"
+      "i18nKeys": [
+        "login.welcome_back",
+        "login_account",
+        "login_password",
+        "login_login",
+        "login.forgot_password",
+        "login.continue_with_google",
+        "login.dont_have_account",
+        "login.sign_up"
+      ],
+      "testCoverage": "full",
+      "priority": "P2"
     },
     {
       "id": "bot-list",
       "path": "/bots",
       "title": "マイボット",
-      "components": ["BotCard", "SearchBox", "CreateDialog"],
+      "components": [
+        "BotCard",
+        "SearchBox",
+        "CreateDialog"
+      ],
       "keySelectors": {
         "welcome-text": "getByText('GBaseへようこそ')",
         "search-box": "getByRole('textbox', { name: 'ボットを検索...' })",
         "create-button": "getByText('AIアシスタントを作成しています')",
         "create-dialog": "getByRole('dialog', { name: 'AIアシスタントを作成しています' })"
       },
-      "i18nKeys": ["page.my_bots_title", "page.my_bots_description", "menu.my_bots"],
-      "testCoverage": "full"
+      "i18nKeys": [
+        "page.my_bots_title",
+        "page.my_bots_description",
+        "menu.my_bots"
+      ],
+      "testCoverage": "full",
+      "priority": "P0"
     },
     {
       "id": "bot-chat",
       "path": "/bot/:id/chat",
       "title": "チャット",
-      "components": ["ChatInput", "MessageList", "ShareButton"],
+      "components": [
+        "ChatInput",
+        "MessageList",
+        "ShareButton"
+      ],
       "keySelectors": {
         "chat-input": "getByRole('textbox', { name: 'こちらにメッセージを入力してください...' })",
         "share-button": "getByRole('button', { name: '共有' })"
       },
-      "i18nKeys": ["page.chat_title", "page.chat_description", "menu.bot.chat"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.chat_title",
+        "page.chat_description",
+        "menu.bot.chat"
+      ],
+      "testCoverage": "partial",
+      "priority": "P0"
     },
     {
       "id": "bot-settings",
       "path": "/bot/:id/settings",
       "title": "設定",
-      "components": ["SettingsTabs", "NameInput", "DangerZone"],
+      "components": [
+        "SettingsTabs",
+        "NameInput",
+        "DangerZone"
+      ],
       "keySelectors": {
         "tab-general": "getByRole('tab', { name: '一般設定' })",
         "tab-advanced": "getByRole('tab', { name: '詳細設定' })",
@@ -63,92 +99,165 @@
         "tab-delete": "getByRole('tab', { name: 'ボット削除' })",
         "name-input": "getByPlaceholder('チャットボットの名前を入力してください')"
       },
-      "i18nKeys": ["page.settings_title", "page.settings_description", "settings.delete.label", "menu.bot.settings"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.settings_title",
+        "page.settings_description",
+        "settings.delete.label",
+        "menu.bot.settings"
+      ],
+      "testCoverage": "partial",
+      "priority": "P0"
     },
     {
       "id": "bot-records",
       "path": "/bot/:id/records",
       "title": "チャット履歴",
-      "components": ["Records"],
+      "components": [
+        "Records"
+      ],
       "keySelectors": {
         "page-title": "getByText('チャット履歴')"
       },
-      "i18nKeys": ["page.chat_history_title", "menu.bot.records"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.chat_history_title",
+        "menu.bot.records"
+      ],
+      "testCoverage": "partial",
+      "priority": "P2"
     },
     {
       "id": "bot-dictionary",
       "path": "/bot/:id/dictionary",
       "title": "データ辞書",
-      "components": ["TermList", "AddTermForm"],
+      "components": [
+        "TermList",
+        "AddTermForm"
+      ],
       "keySelectors": {
         "add-button": "getByRole('button', { name: /追加|新規/ }).first()",
         "search-placeholder": "getByPlaceholder('専門用語を検索')"
       },
-      "i18nKeys": ["page.dictionary_title", "page.dictionary_description", "dictionary.create", "dictionary.delete", "menu.bot.dictionary"],
-      "testCoverage": "full"
+      "i18nKeys": [
+        "page.dictionary_title",
+        "page.dictionary_description",
+        "dictionary.create",
+        "dictionary.delete",
+        "menu.bot.dictionary"
+      ],
+      "testCoverage": "full",
+      "priority": "P2"
     },
     {
       "id": "bot-dashboard",
       "path": "/bot/:id/dashboard",
       "title": "ダッシュボード",
-      "components": ["Dashboard", "OverviewCard", "DateSelector", "TotalConversations", "TotalMessages", "AllUsers", "ChatSatisfaction", "PopularityInteractions", "TotalConversationsHeatmap"],
+      "components": [
+        "Dashboard",
+        "OverviewCard",
+        "DateSelector",
+        "TotalConversations",
+        "TotalMessages",
+        "AllUsers",
+        "ChatSatisfaction",
+        "PopularityInteractions",
+        "TotalConversationsHeatmap"
+      ],
       "keySelectors": {
         "page-header": "getByText('ダッシュボード')",
         "date-selector": "getByRole('button', { name: /日付/ })",
         "download-csv-button": "getByRole('button', { name: /ダウンロード/ })"
       },
-      "i18nKeys": ["page.dashboard_description", "menu.bot.dashboard"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.dashboard_description",
+        "menu.bot.dashboard"
+      ],
+      "testCoverage": "partial",
+      "priority": "P2"
     },
     {
       "id": "dataset-list",
       "path": "/datasets",
       "title": "ナレッジベース",
-      "components": ["DatasetCard", "SearchBox", "CreateButton"],
+      "components": [
+        "DatasetCard",
+        "SearchBox",
+        "CreateButton"
+      ],
       "keySelectors": {
         "search-box": "getByRole('textbox', { name: 'ナレッジベース名を検索' })",
         "create-button": "getByRole('button', { name: 'ナレッジベースの作成' })"
       },
-      "i18nKeys": ["page.data_set_title", "page.data_set_description", "dataset.create", "menu.bot.data_sets"],
-      "testCoverage": "full"
+      "i18nKeys": [
+        "page.data_set_title",
+        "page.data_set_description",
+        "dataset.create",
+        "menu.bot.data_sets"
+      ],
+      "testCoverage": "full",
+      "priority": "P0"
     },
     {
       "id": "dataset-detail",
       "path": "/datasets/:id",
       "title": "ナレッジベース詳細",
-      "components": ["FileTab", "WebsiteTab", "DataSourcesList", "FileChunksList"],
+      "components": [
+        "FileTab",
+        "WebsiteTab",
+        "DataSourcesList",
+        "FileChunksList"
+      ],
       "keySelectors": {
         "file-tab": "getByText('ファイルとドキュメント').first()",
         "website-tab": "getByText('ウェブサイト').first()",
         "faq-tab": "getByText('Q&Aデータベース').first()",
         "api-tab": "getByText('APIソース').first()"
       },
-      "i18nKeys": ["page.data_sources_title", "page.data_sources_description", "dataset.source_title.file", "dataset.source_title.website", "dataset.source_title.faq", "dataset.source_title.api"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.data_sources_title",
+        "page.data_sources_description",
+        "dataset.source_title.file",
+        "dataset.source_title.website",
+        "dataset.source_title.faq",
+        "dataset.source_title.api"
+      ],
+      "testCoverage": "partial",
+      "priority": "P0"
     },
     {
       "id": "api-keys",
       "path": "/api-keys",
       "title": "APIキー",
-      "components": ["KeyList", "CreateDialog"],
+      "components": [
+        "KeyList",
+        "CreateDialog"
+      ],
       "keySelectors": {
         "create-button": "getByRole('button', { name: /新規キーを作成|作成/ }).first()"
       },
-      "i18nKeys": ["menu.api_keys"],
-      "testCoverage": "full"
+      "i18nKeys": [
+        "menu.api_keys"
+      ],
+      "testCoverage": "full",
+      "priority": "P1"
     },
     {
       "id": "access-control",
       "path": "/access",
       "title": "コラボレーション管理",
-      "components": ["Access", "ContainerHeader"],
+      "components": [
+        "Access",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('コラボレーション管理')"
       },
-      "i18nKeys": ["page.access_title", "page.access_description", "menu.access"],
-      "testCoverage": "partial"
+      "i18nKeys": [
+        "page.access_title",
+        "page.access_description",
+        "menu.access"
+      ],
+      "testCoverage": "partial",
+      "priority": "P2"
     },
     {
       "id": "not-found",
@@ -159,27 +268,47 @@
         "secret-text": "getByText('あなたは秘密の場所を見つけました')"
       },
       "i18nKeys": [],
-      "testCoverage": "full"
+      "testCoverage": "full",
+      "priority": "P2"
     },
     {
       "id": "bot-visitors",
       "path": "/bot/:id/visitors",
       "title": "オンライン訪問者",
-      "components": ["Visitors", "VisitorTable", "ContainerHeader"],
+      "components": [
+        "Visitors",
+        "VisitorTable",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('オンライン訪問者')",
         "visitor-table": "getByRole('table')",
         "channel-column": "getByText('インバウンドチャネル')",
         "visitor-id-column": "getByText('訪問者ID')"
       },
-      "i18nKeys": ["visitors.title", "visitors.desc", "visitors.table.channel", "visitors.table.id", "visitors.table.action", "menu.bot.live_visitors"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "visitors.title",
+        "visitors.desc",
+        "visitors.table.channel",
+        "visitors.table.id",
+        "visitors.table.action",
+        "menu.bot.live_visitors"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-tag",
       "path": "/bot/:id/tag",
       "title": "タグ管理",
-      "components": ["TagManagementPage", "TableBody", "EditModal", "Table", "Button", "ContainerHeader"],
+      "components": [
+        "TagManagementPage",
+        "TableBody",
+        "EditModal",
+        "Table",
+        "Button",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('タグ管理')",
         "create-group-button": "getByRole('button', { name: 'タググループを作成' })",
@@ -190,79 +319,135 @@
         "action-column": "getByText('操作')",
         "edit-modal": "getByRole('dialog')"
       },
-      "i18nKeys": ["tag.container_title", "tag.container_description", "tag.create_group", "tag.group", "tag.tags", "tag.edit_time", "tag.action", "tag.delete_group", "tag.edit_group", "menu.bot.tag_management"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "tag.container_title",
+        "tag.container_description",
+        "tag.create_group",
+        "tag.group",
+        "tag.tags",
+        "tag.edit_time",
+        "tag.action",
+        "tag.delete_group",
+        "tag.edit_group",
+        "menu.bot.tag_management"
+      ],
+      "testCoverage": "none",
+      "priority": "P1"
     },
     {
       "id": "bot-realtime",
       "path": "/bot/:id/realtime",
       "title": "リアルタイム会話",
-      "components": ["Realtime", "AccessControl", "ShareLink", "ContainerHeader"],
+      "components": [
+        "Realtime",
+        "AccessControl",
+        "ShareLink",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('リアルタイム会話')",
         "access-control-toggle": "getByRole('switch', { name: /アクセス制御/ })",
         "email-input": "getByRole('textbox', { name: /メール/ })"
       },
-      "i18nKeys": ["menu.bot.realtime", "settings.realtime.load_error"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.bot.realtime",
+        "settings.realtime.load_error"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-widget-embed",
       "path": "/bot/:id/widget-embed",
       "title": "チャットボットウィジェットのカスタマイズ",
-      "components": ["Widget"],
+      "components": [
+        "Widget"
+      ],
       "keySelectors": {
         "page-title": "getByText('チャットボットウィジェットのカスタマイズ')",
         "widget-preview": "locator('[data-testid=\"widget-preview\"]')"
       },
-      "i18nKeys": ["page.widget_embed_title", "page.widget_embed_description", "menu.bot.widget_embed"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "page.widget_embed_title",
+        "page.widget_embed_description",
+        "menu.bot.widget_embed"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-digital-human",
       "path": "/bot/:id/digital-human",
       "title": "デジタルヒューマン",
-      "components": ["DigitalHumanSettings", "ScrollArea", "LoadingOverlay"],
+      "components": [
+        "DigitalHumanSettings",
+        "ScrollArea",
+        "LoadingOverlay"
+      ],
       "keySelectors": {
         "page-title": "getByText('デジタルヒューマン')",
         "enable-toggle": "getByRole('switch', { name: /デジタルヒューマン/ })"
       },
-      "i18nKeys": ["settings.digital_human.label", "settings.digital_human.desc", "menu.bot.digital_human"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "settings.digital_human.label",
+        "settings.digital_human.desc",
+        "menu.bot.digital_human"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-data-source",
       "path": "/bot/:id/data-source",
       "title": "リンクされたナレッジベース",
-      "components": ["Embeddings"],
+      "components": [
+        "Embeddings"
+      ],
       "keySelectors": {
         "page-title": "getByText('リンクされたナレッジベース')",
         "add-dataset-button": "getByRole('button', { name: 'ナレッジベースを追加' })"
       },
-      "i18nKeys": ["page.data_sources_title", "page.data_sources_description", "embeddings.dataset.add", "menu.bot.data_sources"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "page.data_sources_title",
+        "page.data_sources_description",
+        "embeddings.dataset.add",
+        "menu.bot.data_sources"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-tools",
       "path": "/bot/:id/tools",
       "title": "MCP",
-      "components": ["Tools", "MCP"],
+      "components": [
+        "Tools",
+        "MCP"
+      ],
       "keySelectors": {
         "page-title": "getByText('MCP')"
       },
-      "i18nKeys": ["menu.bot.tool_list"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.bot.tool_list"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-capabilities",
       "path": "/bot/:id/capabilities",
       "title": "機能",
-      "components": ["Capabilities"],
+      "components": [
+        "Capabilities"
+      ],
       "keySelectors": {
         "page-title": "getByText('機能')"
       },
-      "i18nKeys": ["menu.bot.capabilities"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.bot.capabilities"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "bot-insights",
@@ -274,7 +459,8 @@
       },
       "i18nKeys": [],
       "testCoverage": "none",
-      "note": "Stub page — not yet implemented (renders placeholder text only)"
+      "note": "Stub page — not yet implemented (renders placeholder text only)",
+      "priority": "P2"
     },
     {
       "id": "bot-usage",
@@ -284,9 +470,12 @@
       "keySelectors": {
         "page-title": "getByText('UsagePage')"
       },
-      "i18nKeys": ["settings.quota.modal.title"],
+      "i18nKeys": [
+        "settings.quota.modal.title"
+      ],
       "testCoverage": "none",
-      "note": "Stub page — not yet implemented (renders placeholder text only)"
+      "note": "Stub page — not yet implemented (renders placeholder text only)",
+      "priority": "P2"
     },
     {
       "id": "bot-questions",
@@ -296,75 +485,143 @@
       "keySelectors": {
         "page-title": "getByText('QuestionsPage')"
       },
-      "i18nKeys": ["menu.bot.teach_model"],
+      "i18nKeys": [
+        "menu.bot.teach_model"
+      ],
       "testCoverage": "none",
-      "note": "Stub page — not yet implemented (renders placeholder text only)"
+      "note": "Stub page — not yet implemented (renders placeholder text only)",
+      "priority": "P2"
     },
     {
       "id": "create",
       "path": "/create",
       "title": "AIアシスタントを作成",
-      "components": ["CreateV2", "Header", "Container", "EmbedList"],
+      "components": [
+        "CreateV2",
+        "Header",
+        "Container",
+        "EmbedList"
+      ],
       "keySelectors": {
         "page-title": "getByText('あなたにぴったりのAIアシスタントを作成します')",
         "name-input": "getByRole('textbox', { name: /名前/ })",
         "desc-input": "getByRole('textbox', { name: /説明/ })"
       },
-      "i18nKeys": ["create.title", "create.name_label", "create.name_placeholder", "create_v2.title", "create_v2.desc", "menu.create"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "create.title",
+        "create.name_label",
+        "create.name_placeholder",
+        "create_v2.title",
+        "create_v2.desc",
+        "menu.create"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "message-center",
       "path": "/message-center",
       "title": "メッセージセンター",
-      "components": ["MessageCenter", "ContainerHeader", "Card", "Badge", "Alert"],
+      "components": [
+        "MessageCenter",
+        "ContainerHeader",
+        "Card",
+        "Badge",
+        "Alert"
+      ],
       "keySelectors": {
         "page-title": "getByText('メッセージセンター')",
         "no-invitations-text": "getByText('招待通知がありません')",
         "accept-button": "getByRole('button', { name: '受け入れる' })"
       },
-      "i18nKeys": ["messageCenter.title", "messageCenter.description", "messageCenter.noInvitations", "messageCenter.accept", "messageCenter.reject", "messageCenter.status.pending", "menu.message_center"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "messageCenter.title",
+        "messageCenter.description",
+        "messageCenter.noInvitations",
+        "messageCenter.accept",
+        "messageCenter.reject",
+        "messageCenter.status.pending",
+        "menu.message_center"
+      ],
+      "testCoverage": "none",
+      "priority": "P1"
     },
     {
       "id": "collaborative",
       "path": "/collaborative",
       "title": "コラボレーションスペース",
-      "components": ["Collaborative", "ContainerHeader", "Tabs", "NoDataTip"],
+      "components": [
+        "Collaborative",
+        "ContainerHeader",
+        "Tabs",
+        "NoDataTip"
+      ],
       "keySelectors": {
         "page-title": "getByText('コラボレーションスペース')",
         "robot-tab": "getByRole('tab', { name: '共有できるもの' })",
         "dataset-tab": "getByRole('tab', { name: '共有されたもの' })",
         "leave-button": "getByRole('button', { name: '解除' })"
       },
-      "i18nKeys": ["page.collaborate_title", "page.collaborate_description", "collaborative.tab.my_shared", "collaborative.tab.shared_with_me", "collaborative.leave", "menu.collaborative"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "page.collaborate_title",
+        "page.collaborate_description",
+        "collaborative.tab.my_shared",
+        "collaborative.tab.shared_with_me",
+        "collaborative.leave",
+        "menu.collaborative"
+      ],
+      "testCoverage": "none",
+      "priority": "P1"
     },
     {
       "id": "org-collaboration-internal",
       "path": "/org-collaboration/internal",
       "title": "組織内協同管理",
-      "components": ["OrgCollaborationPage", "Tabs", "Access", "SharedWithMe", "ContainerHeader"],
+      "components": [
+        "OrgCollaborationPage",
+        "Tabs",
+        "Access",
+        "SharedWithMe",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('組織内協同管理')",
         "my-shared-tab": "getByRole('tab', { name: '共有できるもの' })",
         "shared-with-me-tab": "getByRole('tab', { name: '共有されたもの' })"
       },
-      "i18nKeys": ["menu.organization_collaboration", "page.org_collaboration_description", "collaborative.tab.my_shared", "collaborative.tab.shared_with_me"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.organization_collaboration",
+        "page.org_collaboration_description",
+        "collaborative.tab.my_shared",
+        "collaborative.tab.shared_with_me"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "org-collaboration-external",
       "path": "/org-collaboration/external",
       "title": "組織外協同管理",
-      "components": ["OrgCollaborationPage", "Tabs", "Access", "SharedWithMe", "ContainerHeader"],
+      "components": [
+        "OrgCollaborationPage",
+        "Tabs",
+        "Access",
+        "SharedWithMe",
+        "ContainerHeader"
+      ],
       "keySelectors": {
         "page-title": "getByText('組織外協同管理')",
         "my-shared-tab": "getByRole('tab', { name: '共有できるもの' })",
         "shared-with-me-tab": "getByRole('tab', { name: '共有されたもの' })"
       },
-      "i18nKeys": ["menu.external_collaboration", "page.org_collaboration_description", "collaborative.tab.my_shared", "collaborative.tab.shared_with_me"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.external_collaboration",
+        "page.org_collaboration_description",
+        "collaborative.tab.my_shared",
+        "collaborative.tab.shared_with_me"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "team",
@@ -374,142 +631,199 @@
       "keySelectors": {
         "page-title": "getByText('TeamPage')"
       },
-      "i18nKeys": ["menu.account"],
+      "i18nKeys": [
+        "menu.account"
+      ],
       "testCoverage": "none",
-      "note": "Stub page — not yet implemented (renders placeholder text only)"
+      "note": "Stub page — not yet implemented (renders placeholder text only)",
+      "priority": "P1"
     },
     {
       "id": "account",
       "path": "/account",
       "title": "アカウント",
-      "components": ["AccountCenter", "LoadingOverlay"],
+      "components": [
+        "AccountCenter",
+        "LoadingOverlay"
+      ],
       "keySelectors": {
         "page-title": "getByText('アカウント')"
       },
-      "i18nKeys": ["menu.account"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "menu.account"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "auth-register",
       "path": "/auth/register",
       "title": "新規登録",
-      "components": ["RegisterForm"],
+      "components": [
+        "RegisterForm"
+      ],
       "keySelectors": {
         "register-button": "getByRole('button', { name: /登録|新規/ })"
       },
-      "i18nKeys": ["login.sign_up"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "login.sign_up"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "auth-forgot-password",
       "path": "/auth/forgot-password",
       "title": "パスワードを忘れた",
-      "components": ["ForgotPasswordForm"],
+      "components": [
+        "ForgotPasswordForm"
+      ],
       "keySelectors": {
         "email-input": "getByRole('textbox', { name: /メール/ })",
         "submit-button": "getByRole('button', { name: /送信/ })"
       },
-      "i18nKeys": ["login.forgot_password"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "login.forgot_password"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "no-access",
       "path": "/no-access",
       "title": "アクセス拒否",
-      "components": ["NoAccess"],
+      "components": [
+        "NoAccess"
+      ],
       "keySelectors": {
         "title-text": "getByText('アクセス拒否')",
         "exit-button": "getByRole('button', { name: '終了' })"
       },
-      "i18nKeys": ["no_access.title", "no_access.desc", "no_access.exit"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "no_access.title",
+        "no_access.desc",
+        "no_access.exit"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "admin-console",
       "path": "/admin-console",
       "title": "管理コンソール",
-      "components": ["AdminConsole"],
+      "components": [
+        "AdminConsole"
+      ],
       "keySelectors": {
         "page-title": "getByText('管理コンソール')"
       },
       "i18nKeys": [],
-      "testCoverage": "none"
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "dataset-faq",
       "path": "/datasets/:datasetId/data-source/faq",
       "title": "Q&Aデータベース",
-      "components": ["DataBasePage"],
+      "components": [
+        "DataBasePage"
+      ],
       "keySelectors": {
         "page-title": "getByText('Q&Aデータベース')",
         "add-faq-button": "getByRole('button', { name: /追加|FAQ/ })"
       },
-      "i18nKeys": ["page.data_base_title", "page.data_base_description", "create.faqs.add_title", "menu.bot.data_base"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "page.data_base_title",
+        "page.data_base_description",
+        "create.faqs.add_title",
+        "menu.bot.data_base"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "dataset-api",
       "path": "/datasets/:datasetId/data-source/api",
       "title": "APIソース",
-      "components": ["APIsPage"],
+      "components": [
+        "APIsPage"
+      ],
       "keySelectors": {
         "page-title": "getByText('APIソース')"
       },
-      "i18nKeys": ["dataset.source_title.api"],
-      "testCoverage": "none"
+      "i18nKeys": [
+        "dataset.source_title.api"
+      ],
+      "testCoverage": "none",
+      "priority": "P2"
     },
     {
       "id": "dataset-integration",
       "path": "/datasets/:datasetId/data-source/integration",
       "title": "インテグレーション",
-      "components": ["IntegrationTasksPage"],
+      "components": [
+        "IntegrationTasksPage"
+      ],
       "keySelectors": {
         "page-title": "getByText('インテグレーション')"
       },
       "i18nKeys": [],
-      "testCoverage": "none"
+      "testCoverage": "none",
+      "priority": "P2"
     }
   ],
   "flows": [
     {
       "id": "bot-crud",
       "name": "ボット作成→削除",
-      "steps": ["bot-list → createDialog → /create?botId=X → bot-list → delete"],
+      "steps": [
+        "bot-list → createDialog → /create?botId=X → bot-list → delete"
+      ],
       "priority": "P0",
       "testCoverage": "full"
     },
     {
       "id": "bot-workflow",
       "name": "ボット作成→設定→チャット→削除",
-      "steps": ["bot-list → createDialog → bot-settings → bot-chat → bot-list → delete"],
+      "steps": [
+        "bot-list → createDialog → bot-settings → bot-chat → bot-list → delete"
+      ],
       "priority": "P0",
       "testCoverage": "full"
     },
     {
       "id": "tag-crud",
       "name": "タググループ作成→編集→削除",
-      "steps": ["bot-tag → createGroup → editModal → save → deleteConfirm"],
+      "steps": [
+        "bot-tag → createGroup → editModal → save → deleteConfirm"
+      ],
       "priority": "P1",
       "testCoverage": "none"
     },
     {
       "id": "dataset-add-source",
       "name": "ナレッジベース作成→データソース追加",
-      "steps": ["dataset-list → create → dataset-detail → upload-file OR add-website"],
+      "steps": [
+        "dataset-list → create → dataset-detail → upload-file OR add-website"
+      ],
       "priority": "P1",
       "testCoverage": "none"
     },
     {
       "id": "org-invite-accept",
       "name": "組織招待受け入れフロー",
-      "steps": ["message-center → pendingInvitations → accept → success"],
+      "steps": [
+        "message-center → pendingInvitations → accept → success"
+      ],
       "priority": "P2",
       "testCoverage": "none"
     },
     {
       "id": "collaborative-leave",
       "name": "コラボレーション解除フロー",
-      "steps": ["collaborative → tab-shared → leaveButton → confirmModal → success"],
+      "steps": [
+        "collaborative → tab-shared → leaveButton → confirmModal → success"
+      ],
       "priority": "P2",
       "testCoverage": "none"
     }
