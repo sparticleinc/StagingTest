@@ -245,6 +245,51 @@
       "confidence": 0.90,
       "lastVerified": "2026-03-20",
       "note": "404 page may show Japanese text OR '404' number. Use .isVisible().catch(() => false) to check both."
+    },
+    "bot-list.create-dialog-name-input": {
+      "selector": "getByRole('dialog', { name: 'AIアシスタントを作成しています' }).getByRole('textbox', { name: '名前' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.70,
+      "lastVerified": "2026-03-20",
+      "note": "Scoped to dialog to avoid ambiguity with other name inputs on the page"
+    },
+    "bot-list.create-dialog-cancel-button": {
+      "selector": "getByRole('dialog', { name: 'AIアシスタントを作成しています' }).getByRole('button', { name: 'キャンセル' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.70,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-chat.share-button": {
+      "selector": "getByRole('button', { name: '共有' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.90,
+      "lastVerified": "2026-03-20",
+      "note": "Share button behavior is non-standard — clicking it may navigate or open a drawer rather than a labeled dialog. Only assert button is visible + enabled."
+    },
+    "bot-settings.tabpanel": {
+      "selector": "getByRole('tabpanel')",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.70,
+      "lastVerified": "2026-03-20",
+      "note": "Generic tabpanel — use after clicking a specific tab to assert the panel is active"
+    },
+    "dataset-detail.faq-tab": {
+      "selector": "getByText('Q&Aデータベース').first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.70,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset-detail.api-tab": {
+      "selector": "getByText('APIソース').first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.70,
+      "lastVerified": "2026-03-20"
     }
   }
 }
