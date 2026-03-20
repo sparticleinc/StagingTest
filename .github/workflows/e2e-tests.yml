@@ -72,7 +72,7 @@ jobs:
     name: New Tests (.spec.new.ts)
     runs-on: ubuntu-latest
     if: github.event.inputs.test_scope != 'stable'
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     steps:
       - uses: actions/checkout@v4

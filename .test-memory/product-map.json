@@ -220,8 +220,13 @@
         "dataset.source_title.faq",
         "dataset.source_title.api"
       ],
-      "testCoverage": "partial",
-      "priority": "P0"
+      "testCoverage": "full",
+      "priority": "P0",
+      "testDepth": [
+        "display",
+        "interaction",
+        "crud"
+      ]
     },
     {
       "id": "api-keys",

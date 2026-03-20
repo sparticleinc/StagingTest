@@ -32,7 +32,9 @@
     },
     "bot-list.search-box": {
       "selector": "getByRole('textbox', { name: 'ボットを検索...' })",
-      "alternatives": ["getByPlaceholder('ボットを検索...')"],
+      "alternatives": [
+        "getByPlaceholder('ボットを検索...')"
+      ],
       "failHistory": [],
       "confidence": 0.98,
       "lastVerified": "2026-03-20"
@@ -41,9 +43,13 @@
       "selector": "getByText('AIアシスタントを作成しています')",
       "alternatives": [],
       "failHistory": [
-        { "date": "2026-03-18", "oldSelector": "getByText('ボットを作成')", "reason": "UI button text is full sentence, not short label" }
+        {
+          "date": "2026-03-18",
+          "oldSelector": "getByText('ボットを作成')",
+          "reason": "UI button text is full sentence, not short label"
+        }
       ],
-      "confidence": 0.90,
+      "confidence": 0.9,
       "lastVerified": "2026-03-20"
     },
     "bot-list.create-dialog": {
@@ -85,7 +91,11 @@
       "selector": "evaluate(() => { let c = el.parentElement; while(c) { const btn = c.querySelector('button'); if(btn) { btn.click(); return; } c = c.parentElement; } })",
       "alternatives": [],
       "failHistory": [
-        { "date": "2026-03-18", "oldSelector": "locator('xpath=../..').locator('button')", "reason": "xpath chaining unreliable in Playwright for Mantine card components" }
+        {
+          "date": "2026-03-18",
+          "oldSelector": "locator('xpath=../..').locator('button')",
+          "reason": "xpath chaining unreliable in Playwright for Mantine card components"
+        }
       ],
       "confidence": 0.95,
       "lastVerified": "2026-03-20",
@@ -146,7 +156,11 @@
       "selector": "getByRole('tab', { name: '一般設定' })",
       "alternatives": [],
       "failHistory": [
-        { "date": "2026-03-20", "oldSelector": "getByText('一般', { exact: true })", "reason": "Mantine Tab renders full text '一般設定' not just '一般'" }
+        {
+          "date": "2026-03-20",
+          "oldSelector": "getByText('一般', { exact: true })",
+          "reason": "Mantine Tab renders full text '一般設定' not just '一般'"
+        }
       ],
       "confidence": 0.97,
       "lastVerified": "2026-03-20"
@@ -174,26 +188,35 @@
     },
     "bot-settings.name-input": {
       "selector": "getByPlaceholder('チャットボットの名前を入力してください')",
-      "alternatives": ["getByRole('textbox').nth(1)"],
+      "alternatives": [
+        "getByRole('textbox').nth(1)"
+      ],
       "failHistory": [
-        { "date": "2026-03-20", "oldSelector": "getByRole('textbox').first()", "reason": "first() hits the readonly bot ID field instead of the editable name field" }
+        {
+          "date": "2026-03-20",
+          "oldSelector": "getByRole('textbox').first()",
+          "reason": "first() hits the readonly bot ID field instead of the editable name field"
+        }
       ],
       "confidence": 0.97,
       "lastVerified": "2026-03-20"
     },
     "bot-chat.input": {
       "selector": "getByRole('textbox', { name: 'こちらにメッセージを入力してください...' })",
-      "alternatives": ["getByRole('textbox').first()"],
+      "alternatives": [
+        "getByRole('textbox').first()"
+      ],
       "failHistory": [],
-      "confidence": 0.90,
+      "confidence": 0.9,
       "lastVerified": "2026-03-20"
     },
     "bot-chat.share-button": {
       "selector": "getByRole('button', { name: '共有' })",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.90,
-      "lastVerified": "2026-03-20"
+      "confidence": 0.9,
+      "lastVerified": "2026-03-20",
+      "note": "Share button behavior is non-standard — clicking it may navigate or open a drawer rather than a labeled dialog. Only assert button is visible + enabled."
     },
     "dataset-list.search-box": {
       "selector": "getByRole('textbox', { name: 'ナレッジベース名を検索' })",
@@ -240,9 +263,11 @@
     },
     "not-found.secret-text": {
       "selector": "getByText('あなたは秘密の場所を見つけました')",
-      "alternatives": ["getByText('404')"],
+      "alternatives": [
+        "getByText('404')"
+      ],
       "failHistory": [],
-      "confidence": 0.90,
+      "confidence": 0.9,
       "lastVerified": "2026-03-20",
       "note": "404 page may show Japanese text OR '404' number. Use .isVisible().catch(() => false) to check both."
     },
@@ -250,7 +275,7 @@
       "selector": "getByRole('dialog', { name: 'AIアシスタントを作成しています' }).getByRole('textbox', { name: '名前' })",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.70,
+      "confidence": 0.7,
       "lastVerified": "2026-03-20",
       "note": "Scoped to dialog to avoid ambiguity with other name inputs on the page"
     },
@@ -258,22 +283,14 @@
       "selector": "getByRole('dialog', { name: 'AIアシスタントを作成しています' }).getByRole('button', { name: 'キャンセル' })",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.70,
+      "confidence": 0.7,
       "lastVerified": "2026-03-20"
-    },
-    "bot-chat.share-button": {
-      "selector": "getByRole('button', { name: '共有' })",
-      "alternatives": [],
-      "failHistory": [],
-      "confidence": 0.90,
-      "lastVerified": "2026-03-20",
-      "note": "Share button behavior is non-standard — clicking it may navigate or open a drawer rather than a labeled dialog. Only assert button is visible + enabled."
     },
     "bot-settings.tabpanel": {
       "selector": "getByRole('tabpanel')",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.70,
+      "confidence": 0.7,
       "lastVerified": "2026-03-20",
       "note": "Generic tabpanel — use after clicking a specific tab to assert the panel is active"
     },
@@ -281,14 +298,91 @@
       "selector": "getByText('Q&Aデータベース').first()",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.70,
+      "confidence": 0.7,
       "lastVerified": "2026-03-20"
     },
     "dataset-detail.api-tab": {
       "selector": "getByText('APIソース').first()",
       "alternatives": [],
       "failHistory": [],
-      "confidence": 0.70,
+      "confidence": 0.7,
+      "lastVerified": "2026-03-20"
+    },
+    "collaborative.chatbot-tab": {
+      "selector": "getByRole('tab', { name: 'チャットボット' })",
+      "alternatives": [],
+      "failHistory": [
+        {
+          "date": "2026-03-20",
+          "oldSelector": "getByRole('tab', { name: 'AIアシスタント' })",
+          "reason": "R3 relocate: live page shows 'チャットボット' not 'AIアシスタント'"
+        }
+      ],
+      "confidence": 0.7,
+      "lastVerified": "2026-03-20",
+      "note": "Healed via R3 relocate"
+    },
+    "collaborative.knowledge-tab": {
+      "selector": "getByRole('tab', { name: 'ナレッジベース' })",
+      "alternatives": [],
+      "failHistory": [
+        {
+          "date": "2026-03-20",
+          "oldSelector": "getByRole('tab', { name: 'データセット' })",
+          "reason": "R3 relocate: live page shows 'ナレッジベース' not 'データセット'"
+        }
+      ],
+      "confidence": 0.7,
+      "lastVerified": "2026-03-20",
+      "note": "Healed via R3 relocate"
+    },
+    "dataset.add-datasource-button": {
+      "selector": "getByRole('button', { name: 'データソースを追加' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset.start-learning-button": {
+      "selector": "getByRole('button', { name: '学習を開始する' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset.learning-complete-status": {
+      "selector": "getByText('学習済み')",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.9,
+      "lastVerified": "2026-03-20"
+    },
+    "bot.add-kb-button": {
+      "selector": "getByRole('button', { name: 'ナレッジベースを追加' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot.select-kb-heading": {
+      "selector": "getByRole('heading', { name: '参照ナレッジベースを選択する' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.9,
+      "lastVerified": "2026-03-20"
+    },
+    "bot.chat-input": {
+      "selector": "getByRole('textbox', { name: 'こちらにメッセージを入力してください...' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.9,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset.file-input": {
+      "selector": "locator('input[type=\"file\"]')",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
       "lastVerified": "2026-03-20"
     }
   }
