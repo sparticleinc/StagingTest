@@ -32,7 +32,7 @@ jobs:
   e2e-stable:
     name: Stable Tests (.spec.ts)
     runs-on: ubuntu-latest
-    if: inputs.test_scope != 'new'
+    if: github.event.inputs.test_scope != 'new'
     timeout-minutes: 15
 
     steps:
@@ -71,7 +71,7 @@ jobs:
   e2e-new:
     name: New Tests (.spec.new.ts)
     runs-on: ubuntu-latest
-    if: inputs.test_scope != 'stable'
+    if: github.event.inputs.test_scope != 'stable'
     timeout-minutes: 20
 
     steps:
