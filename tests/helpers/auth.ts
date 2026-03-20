@@ -17,12 +17,22 @@ export async function login(page: Page) {
 
 /**
  * Navigate into a specific bot by clicking its card on the bots page.
+ * Uses the search box to filter bots, ensuring the target is visible
+ * even when many bots exist (e.g. orphaned E2E bots pushing it off-screen).
  */
 export async function navigateToBot(page: Page, botName: string) {
   await page.goto('/bots');
   await expect(page.getByText('GBaseへようこそ')).toBeVisible({ timeout: 10_000 });
-  // Use locator with text match — handles full-width brackets etc.
-  await page.locator(`text=${botName}`).first().click();
+
+  // Use search box to filter — guarantees target bot is visible
+  const searchBox = page.getByRole('textbox', { name: 'ボットを検索...' });
+  await searchBox.fill(botName);
+  await page.waitForTimeout(1000);
+
+  // Click the bot card
+  const botCard = page.getByText(botName, { exact: true }).first();
+  await botCard.scrollIntoViewIfNeeded();
+  await botCard.click();
   await page.waitForURL('**/bot/*/chat', { timeout: 15_000 });
 }
 

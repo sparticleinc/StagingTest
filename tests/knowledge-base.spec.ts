@@ -9,14 +9,14 @@ test.describe('Knowledge Base @kb', () => {
     await expect(page.getByRole('button', { name: 'ナレッジベースの作成' })).toBeVisible();
   });
 
-  test('ナレッジベース一覧表示 @P0', async ({ page }) => {
+  test('ナレッジベース一覧表示 @L1 @P0 @smoke', async ({ page }) => {
     await expect(page.getByText('ISMS').first()).toBeVisible();
     await expect(
       page.getByRole('button', { name: 'ナレッジベースの作成' })
     ).toBeVisible();
   });
 
-  test('ナレッジベース検索 @P1', async ({ page }) => {
+  test('ナレッジベース検索 @L2 @P1', async ({ page }) => {
     const searchBox = page.getByRole('textbox', {
       name: 'ナレッジベース名を検索',
     });

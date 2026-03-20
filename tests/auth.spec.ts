@@ -2,13 +2,13 @@ import { test, expect } from '@playwright/test';
 import { login } from './helpers/auth';
 
 test.describe('Authentication @auth', () => {
-  test('ログイン成功 @P0', async ({ page }) => {
+  test('ログイン成功 @L1 @P0 @smoke', async ({ page }) => {
     await login(page);
     await expect(page).toHaveURL(/\/bots/);
     await expect(page.getByText('GBaseへようこそ')).toBeVisible();
   });
 
-  test('ログイン失敗（不正パスワード） @P1', async ({ page }) => {
+  test('ログイン失敗（不正パスワード） @L5 @P1', async ({ page }) => {
     await page.goto('/auth/login');
     await page.getByRole('textbox', { name: 'アカウント' }).fill('staging@sparticle.com');
     await page.getByRole('textbox', { name: 'パスワード' }).fill('wrong_password_123');
@@ -20,7 +20,7 @@ test.describe('Authentication @auth', () => {
     await expect(page).toHaveURL(/\/auth\/login/);
   });
 
-  test('未ログインでリダイレクト @P1', async ({ page }) => {
+  test('未ログインでリダイレクト @L1 @P1', async ({ page }) => {
     await page.goto('/bots');
     await expect(page).toHaveURL(/\/auth\/login/, { timeout: 10_000 });
   });

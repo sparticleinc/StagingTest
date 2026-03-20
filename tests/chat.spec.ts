@@ -6,7 +6,7 @@ test.describe('Chat @chat', () => {
     await login(page);
   });
 
-  test('チャット送信 & AI応答受信 @P0', async ({ page }) => {
+  test('チャット送信 & AI応答受信 @L4 @P0', async ({ page }) => {
     await navigateToBot(page, 'BDD_Test_Agent');
 
     const chatInput = page.getByRole('textbox', {
@@ -27,7 +27,7 @@ test.describe('Chat @chat', () => {
     }).toPass({ timeout: 30_000 });
   });
 
-  test('チャットページUI要素 @P1', async ({ page }) => {
+  test('チャットページUI要素 @L1 @P1', async ({ page }) => {
     await navigateToBot(page, 'BDD_Test_Agent');
 
     await expect(page.getByRole('button', { name: '共有' })).toBeVisible({
