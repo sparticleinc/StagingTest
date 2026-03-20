@@ -1,10 +1,10 @@
 {
-  "frontendPath": "",
+  "frontendPath": "/Users/lirh2025/Desktop/featureM/mygpt-frontend-prod_1014/apps/admin",
   "frontendBranch": "prod_1014",
   "backendPath": "",
   "backendBranch": "staging",
   "testCommand": "npx playwright test",
   "baseUrl": "https://admin-staging.gbase.ai",
-  "i18nPath": "src/locales/ja/translation.json",
-  "routerConfigPath": "src/routes.tsx"
+  "i18nPath": "/Users/lirh2025/Desktop/featureM/mygpt-frontend-prod_1014/packages/app/locales/ja/translations.json",
+  "routerConfigPath": "src/routes/index.tsx"
 }
