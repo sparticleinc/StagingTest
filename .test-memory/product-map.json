@@ -294,7 +294,7 @@
         "visitors.table.action",
         "menu.bot.live_visitors"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -353,7 +353,7 @@
         "menu.bot.realtime",
         "settings.realtime.load_error"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -372,7 +372,7 @@
         "page.widget_embed_description",
         "menu.bot.widget_embed"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -393,7 +393,7 @@
         "settings.digital_human.desc",
         "menu.bot.digital_human"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -413,7 +413,7 @@
         "embeddings.dataset.add",
         "menu.bot.data_sources"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -430,7 +430,7 @@
       "i18nKeys": [
         "menu.bot.tool_list"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -446,7 +446,7 @@
       "i18nKeys": [
         "menu.bot.capabilities"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -458,7 +458,7 @@
         "page-title": "getByText('InsightsPage')"
       },
       "i18nKeys": [],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "note": "Stub page — not yet implemented (renders placeholder text only)",
       "priority": "P2"
     },
@@ -473,7 +473,7 @@
       "i18nKeys": [
         "settings.quota.modal.title"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "note": "Stub page — not yet implemented (renders placeholder text only)",
       "priority": "P2"
     },
@@ -488,7 +488,7 @@
       "i18nKeys": [
         "menu.bot.teach_model"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "note": "Stub page — not yet implemented (renders placeholder text only)",
       "priority": "P2"
     },
@@ -515,7 +515,7 @@
         "create_v2.desc",
         "menu.create"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -595,7 +595,7 @@
         "collaborative.tab.my_shared",
         "collaborative.tab.shared_with_me"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -620,7 +620,7 @@
         "collaborative.tab.my_shared",
         "collaborative.tab.shared_with_me"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -652,7 +652,7 @@
       "i18nKeys": [
         "menu.account"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -668,7 +668,7 @@
       "i18nKeys": [
         "login.sign_up"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -685,7 +685,7 @@
       "i18nKeys": [
         "login.forgot_password"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -704,7 +704,7 @@
         "no_access.desc",
         "no_access.exit"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -718,7 +718,7 @@
         "page-title": "getByText('管理コンソール')"
       },
       "i18nKeys": [],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -738,7 +738,7 @@
         "create.faqs.add_title",
         "menu.bot.data_base"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -754,7 +754,7 @@
       "i18nKeys": [
         "dataset.source_title.api"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     },
     {
@@ -768,7 +768,7 @@
         "page-title": "getByText('インテグレーション')"
       },
       "i18nKeys": [],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P2"
     }
   ],
