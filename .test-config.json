@@ -1,0 +1,10 @@
+{
+  "frontendPath": "",
+  "frontendBranch": "prod_1014",
+  "backendPath": "",
+  "backendBranch": "staging",
+  "testCommand": "npx playwright test",
+  "baseUrl": "https://admin-staging.gbase.ai",
+  "i18nPath": "src/locales/ja/translation.json",
+  "routerConfigPath": "src/routes.tsx"
+}

@@ -1,0 +1,250 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-03-20",
+  "elements": {
+    "auth.email-input": {
+      "selector": "getByRole('textbox', { name: 'アカウント' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "auth.password-input": {
+      "selector": "getByRole('textbox', { name: 'パスワード' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "auth.login-button": {
+      "selector": "getByRole('button', { name: 'ログイン' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.welcome-text": {
+      "selector": "getByText('GBaseへようこそ')",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.99,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.search-box": {
+      "selector": "getByRole('textbox', { name: 'ボットを検索...' })",
+      "alternatives": ["getByPlaceholder('ボットを検索...')"],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-button": {
+      "selector": "getByText('AIアシスタントを作成しています')",
+      "alternatives": [],
+      "failHistory": [
+        { "date": "2026-03-18", "oldSelector": "getByText('ボットを作成')", "reason": "UI button text is full sentence, not short label" }
+      ],
+      "confidence": 0.90,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-dialog": {
+      "selector": "getByRole('dialog', { name: 'AIアシスタントを作成しています' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-name-input": {
+      "selector": "getByRole('textbox', { name: '名前' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-desc-input": {
+      "selector": "getByRole('textbox', { name: '説明' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-ok-button": {
+      "selector": "getByRole('button', { name: 'OK' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-list.create-cancel-button": {
+      "selector": "getByRole('button', { name: 'キャンセル' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-card.menu-button": {
+      "selector": "evaluate(() => { let c = el.parentElement; while(c) { const btn = c.querySelector('button'); if(btn) { btn.click(); return; } c = c.parentElement; } })",
+      "alternatives": [],
+      "failHistory": [
+        { "date": "2026-03-18", "oldSelector": "locator('xpath=../..').locator('button')", "reason": "xpath chaining unreliable in Playwright for Mantine card components" }
+      ],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20",
+      "note": "Mantine card action button has no accessible name. DOM traversal via evaluate() is the only reliable method."
+    },
+    "bot-card.delete-menuitem": {
+      "selector": "getByRole('menuitem', { name: '削除' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-card.delete-dialog-title": {
+      "selector": "getByText('チャットボットを削除する')",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-card.delete-confirm-button": {
+      "selector": "getByRole('button', { name: '削除' }).last()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20",
+      "note": "Must use .last() because first '削除' is the menu item, last is the dialog confirm button"
+    },
+    "nav.knowledgebase-link": {
+      "selector": "getByRole('link', { name: 'ナレッジベース' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "nav.mybot-link": {
+      "selector": "getByRole('link', { name: 'マイボット' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.98,
+      "lastVerified": "2026-03-20"
+    },
+    "nav.workspace-sparticle": {
+      "selector": "locator('text=Sparticle').last()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20",
+      "note": "Workspace switcher uses text locator with .last() due to multiple Sparticle text occurrences"
+    },
+    "nav.workspace-personal": {
+      "selector": "locator('text=個人').last()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-settings.tab-general": {
+      "selector": "getByRole('tab', { name: '一般設定' })",
+      "alternatives": [],
+      "failHistory": [
+        { "date": "2026-03-20", "oldSelector": "getByText('一般', { exact: true })", "reason": "Mantine Tab renders full text '一般設定' not just '一般'" }
+      ],
+      "confidence": 0.97,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-settings.tab-advanced": {
+      "selector": "getByRole('tab', { name: '詳細設定' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.97,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-settings.tab-prompt": {
+      "selector": "getByRole('tab', { name: 'プロンプト' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.97,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-settings.tab-delete": {
+      "selector": "getByRole('tab', { name: 'ボット削除' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.97,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-settings.name-input": {
+      "selector": "getByPlaceholder('チャットボットの名前を入力してください')",
+      "alternatives": ["getByRole('textbox').nth(1)"],
+      "failHistory": [
+        { "date": "2026-03-20", "oldSelector": "getByRole('textbox').first()", "reason": "first() hits the readonly bot ID field instead of the editable name field" }
+      ],
+      "confidence": 0.97,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-chat.input": {
+      "selector": "getByRole('textbox', { name: 'こちらにメッセージを入力してください...' })",
+      "alternatives": ["getByRole('textbox').first()"],
+      "failHistory": [],
+      "confidence": 0.90,
+      "lastVerified": "2026-03-20"
+    },
+    "bot-chat.share-button": {
+      "selector": "getByRole('button', { name: '共有' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.90,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset-list.search-box": {
+      "selector": "getByRole('textbox', { name: 'ナレッジベース名を検索' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset-list.create-button": {
+      "selector": "getByRole('button', { name: 'ナレッジベースの作成' })",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.95,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset-detail.file-tab": {
+      "selector": "getByText('ファイルとドキュメント').first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20"
+    },
+    "dataset-detail.website-tab": {
+      "selector": "getByText('ウェブサイト').first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20"
+    },
+    "api-keys.create-button": {
+      "selector": "getByRole('button', { name: /新規キーを作成|作成/ }).first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20",
+      "note": "Uses regex because button text may vary"
+    },
+    "dictionary.add-button": {
+      "selector": "getByRole('button', { name: /追加|新規/ }).first()",
+      "alternatives": [],
+      "failHistory": [],
+      "confidence": 0.85,
+      "lastVerified": "2026-03-20"
+    },
+    "not-found.secret-text": {
+      "selector": "getByText('あなたは秘密の場所を見つけました')",
+      "alternatives": ["getByText('404')"],
+      "failHistory": [],
+      "confidence": 0.90,
+      "lastVerified": "2026-03-20",
+      "note": "404 page may show Japanese text OR '404' number. Use .isVisible().catch(() => false) to check both."
+    }
+  }
+}

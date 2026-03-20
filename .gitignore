@@ -12,3 +12,6 @@ blob-report/
 exploration/
 
 .DS_Store
+
+# AI Test Engine temp files
+.test-memory/.pending-scan

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-03-20T00:00:00Z",
+  "app": "GBase Admin",
+  "baseUrl": "https://admin-staging.gbase.ai",
+  "framework": {
+    "ui": "mantine-7",
+    "router": "react-router-6",
+    "i18n": "i18next",
+    "state": "zustand"
+  },
+  "pages": [
+    { "id": "auth", "path": "/auth/login", "title": "ログイン", "components": ["LoginForm"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" },
+    { "id": "bot-list", "path": "/bots", "title": "マイボット", "components": ["BotCard", "SearchBox", "CreateDialog"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" },
+    { "id": "bot-chat", "path": "/bot/:id/chat", "title": "チャット", "components": ["ChatInput", "MessageList"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "bot-settings", "path": "/bot/:id/settings", "title": "設定", "components": ["SettingsTabs", "NameInput", "DangerZone"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "bot-records", "path": "/bot/:id/records", "title": "チャット履歴", "components": [], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "bot-dictionary", "path": "/bot/:id/dictionary", "title": "データ辞書", "components": ["TermList", "AddTermForm"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" },
+    { "id": "bot-dashboard", "path": "/bot/:id/dashboard", "title": "ダッシュボード", "components": [], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "dataset-list", "path": "/datasets", "title": "ナレッジベース", "components": ["DatasetCard", "SearchBox", "CreateButton"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" },
+    { "id": "dataset-detail", "path": "/datasets/:id", "title": "ナレッジベース詳細", "components": ["FileTab", "WebsiteTab"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "api-keys", "path": "/api-keys", "title": "APIキー", "components": ["KeyList", "CreateDialog"], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" },
+    { "id": "access-control", "path": "/access", "title": "アクセス管理", "components": [], "keySelectors": {}, "i18nKeys": [], "testCoverage": "partial" },
+    { "id": "not-found", "path": "/*", "title": "404", "components": [], "keySelectors": {}, "i18nKeys": [], "testCoverage": "full" }
+  ],
+  "flows": [
+    { "id": "bot-crud", "name": "ボット作成→削除", "steps": ["bot-list → createDialog → /create?botId=X → bot-list → delete"], "priority": "P0", "testCoverage": "full" },
+    { "id": "bot-workflow", "name": "ボット作成→設定→チャット→削除", "steps": ["bot-list → createDialog → bot-settings → bot-chat → bot-list → delete"], "priority": "P0", "testCoverage": "full" }
+  ]
+}
