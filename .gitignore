@@ -1,0 +1,14 @@
+node_modules/
+reports/
+test-results/
+playwright-report/
+blob-report/
+
+# Credentials — NEVER commit
+.env
+.env.*
+
+# Exploration data may contain sensitive info
+exploration/
+
+.DS_Store
