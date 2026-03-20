@@ -1,0 +1,155 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/**'
+      - 'playwright.config.ts'
+      - 'playwright.new.config.ts'
+      - '.github/workflows/e2e-tests.yml'
+  schedule:
+    # Run daily at 09:00 JST (00:00 UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      test_scope:
+        description: 'Test scope to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - stable
+          - new
+
+env:
+  BASE_URL: https://admin-staging.gbase.ai
+  TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+  TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+
+jobs:
+  e2e-stable:
+    name: Stable Tests (.spec.ts)
+    runs-on: ubuntu-latest
+    if: inputs.test_scope != 'new'
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Run stable tests
+        run: npx playwright test --config=playwright.config.ts
+        continue-on-error: true
+        id: stable-tests
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stable-test-results
+          path: |
+            reports/
+            test-results/
+          retention-days: 14
+
+      - name: Fail if tests failed
+        if: steps.stable-tests.outcome == 'failure'
+        run: exit 1
+
+  e2e-new:
+    name: New Tests (.spec.new.ts)
+    runs-on: ubuntu-latest
+    if: inputs.test_scope != 'stable'
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Run new tests
+        run: npx playwright test --config=playwright.new.config.ts
+        continue-on-error: true
+        id: new-tests
+
+      - name: Classify failures
+        if: steps.new-tests.outcome == 'failure'
+        run: |
+          echo "=== Failure Classification ==="
+          SELECTOR_BROKEN=$(grep -rl "waiting for locator\|element(s) not found\|strict mode violation" test-results/ 2>/dev/null | wc -l || echo 0)
+          NAV_ERROR=$(grep -rl "ERR_CONNECTION\|net::ERR" test-results/ 2>/dev/null | wc -l || echo 0)
+          echo "  SELECTOR_BROKEN: $SELECTOR_BROKEN"
+          echo "  NAVIGATION_ERROR: $NAV_ERROR"
+          if [ "$SELECTOR_BROKEN" -gt 0 ]; then
+            echo ""
+            echo "::warning::Broken selectors detected. Run /test-heal locally to auto-repair."
+          fi
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-test-results
+          path: |
+            reports/
+            test-results/
+          retention-days: 14
+
+      - name: Fail if tests failed
+        if: steps.new-tests.outcome == 'failure'
+        run: exit 1
+
+  summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [e2e-stable, e2e-new]
+    if: always()
+
+    steps:
+      - name: Generate summary
+        env:
+          STABLE_RESULT: ${{ needs.e2e-stable.result }}
+          NEW_RESULT: ${{ needs.e2e-new.result }}
+        run: |
+          echo "## E2E Test Results" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$STABLE_RESULT" = "success" ]; then
+            echo "- :white_check_mark: Stable tests: **passed**" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$STABLE_RESULT" = "skipped" ]; then
+            echo "- :fast_forward: Stable tests: **skipped**" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- :x: Stable tests: **failed**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          if [ "$NEW_RESULT" = "success" ]; then
+            echo "- :white_check_mark: New tests: **passed**" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$NEW_RESULT" = "skipped" ]; then
+            echo "- :fast_forward: New tests: **skipped**" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- :x: New tests: **failed**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "View detailed reports in workflow artifacts." >> "$GITHUB_STEP_SUMMARY"
