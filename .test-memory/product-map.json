@@ -193,7 +193,7 @@
         "dataset.create",
         "menu.bot.data_sets"
       ],
-      "testCoverage": "full",
+      "testCoverage": "partial",
       "priority": "P0"
     },
     {
@@ -331,7 +331,7 @@
         "tag.edit_group",
         "menu.bot.tag_management"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P1"
     },
     {
@@ -543,7 +543,7 @@
         "messageCenter.status.pending",
         "menu.message_center"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P1"
     },
     {
@@ -570,7 +570,7 @@
         "collaborative.leave",
         "menu.collaborative"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "priority": "P1"
     },
     {
@@ -634,7 +634,7 @@
       "i18nKeys": [
         "menu.account"
       ],
-      "testCoverage": "none",
+      "testCoverage": "partial",
       "note": "Stub page — not yet implemented (renders placeholder text only)",
       "priority": "P1"
     },
