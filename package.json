@@ -12,6 +12,10 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.50.0",
-    "dotenv": "^16.4.0"
+    "@types/pdfkit": "^0.17.5",
+    "docx": "^9.6.1",
+    "dotenv": "^16.4.0",
+    "exceljs": "^4.4.0",
+    "pdfkit": "^0.18.0"
   }
 }
